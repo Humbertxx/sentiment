@@ -3,12 +3,16 @@
 A multi-threaded Python pipeline designed to ingest financial news from multiple sources (Yahoo Finance RSS and Alpaca News API) in real-time. It normalizes the data, deduplicates headlines, and feeds them into a sentiment (`FinBERT`) analysis engine.
 
 ## Features
-**Hybrid Ingestion:** \
+**Hybrid Ingestion:** 
 
-_Streaming:_ Connects to Alpaca's WebSocket for push-based real-time news updates (Benzinga). \
-_Polling:_ Periodically fetches RSS feeds from Yahoo Finance (async/threaded). \
-_Concurrency:_ Uses Python threading and queue to separate data fetching from data processing, ensuring the stream is never blocked by heavy analysis tasks. \
-_Smart Deduplication:_ Maintains a rolling buffer of seen headlines to prevent processing the same news twice. \
+_Streaming:_ Connects to Alpaca's WebSocket for push-based real-time news updates (Benzinga). 
+
+_Polling:_ Periodically fetches RSS feeds from Yahoo Finance (async/threaded). 
+
+_Concurrency:_ Uses Python threading and queue to separate data fetching from data processing, ensuring the stream is never blocked by heavy analysis tasks. 
+
+_Smart Deduplication:_ Maintains a rolling buffer of seen headlines to prevent processing the same news twice. 
+
 _Data Cleaning:_ Automatically strips HTML tags, URLs, and metadata from descriptions using compiled Regex. 
 
 ## Prerequisites
