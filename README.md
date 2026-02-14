@@ -4,11 +4,11 @@ A multi-threaded Python pipeline designed to ingest financial news from multiple
 
 ## Features
 Hybrid Ingestion:
-Streaming: Connects to Alpaca's WebSocket for push-based real-time news updates (Benzinga).
-Polling: Periodically fetches RSS feeds from Yahoo Finance (async/threaded).
-Concurrency: Uses Python threading and queue to separate data fetching from data processing, ensuring the stream is never blocked by heavy analysis tasks.
-Smart Deduplication: Maintains a rolling buffer of seen headlines to prevent processing the same news twice.
-Data Cleaning: Automatically strips HTML tags, URLs, and metadata from descriptions using compiled Regex.
+Streaming: Connects to Alpaca's WebSocket for push-based real-time news updates (Benzinga). \
+Polling: Periodically fetches RSS feeds from Yahoo Finance (async/threaded). \
+Concurrency: Uses Python threading and queue to separate data fetching from data processing, ensuring the stream is never blocked by heavy analysis tasks. \
+Smart Deduplication: Maintains a rolling buffer of seen headlines to prevent processing the same news twice. \
+Data Cleaning: Automatically strips HTML tags, URLs, and metadata from descriptions using compiled Regex. \
 
 ## Prerequisites
 You will need Python 3.x and the following libraries:
@@ -57,12 +57,3 @@ Note: You also need a sentiment.py module with an overall_scores(df) function to
 ## Notes
 * RSS Threading: The RSS polling thread (`t_rss`) is currently commented out in the `__main__` section. Uncomment it if you want to pull Yahoo Finance data alongside the Alpaca stream.
 * Deduplication: The script uses `difflib.SequenceMatcher` to detect slight variations in headlines, preventing duplicate processing of the same story from different sources.
-
-
-
-
-
-
-    RSS Threading: The RSS polling thread (t_rss) is currently commented out in the __main__ section. Uncomment it if you want to pull Yahoo Finance data alongside the Alpaca stream.
-
-    Deduplication: The script uses difflib.SequenceMatcher to detect slight variations in headlines, preventing duplicate processing of the same story from different sources.
