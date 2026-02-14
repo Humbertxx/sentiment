@@ -54,10 +54,10 @@ Note: You also need a sentiment.py module with an overall_scores(df) function to
 * Processed news batches are passed to overall_scores() for sentiment analysis.
 
 ## Code Structure
-```worker_logic```: The "brain" of the operation. It sits in an infinite loop waiting for data in the ```news_queue```. When data arrives, it batches it into a Pandas DataFrame and sends it to the sentiment engine.
-```rss_market_news```: Uses a ```ThreadPoolExecutor``` to fetch RSS feeds for multiple tickers simultaneously without blocking the main program.
-```start_alpaca_stream```: An async wrapper that connects to the Alpaca ```NewsDataStream``` and pushes events into the shared queue.
-```CLEAN_*``` Regex: Pre-compiled patterns used to sanitize raw HTML content from RSS feeds.
+* ```worker_logic```: The "brain" of the operation. It sits in an infinite loop waiting for data in the ```news_queue```. When data arrives, it batches it into a Pandas DataFrame and sends it to the sentiment engine.
+* ```rss_market_news```: Uses a ```ThreadPoolExecutor``` to fetch RSS feeds for multiple tickers simultaneously without blocking the main program.
+* ```start_alpaca_stream```: An async wrapper that connects to the Alpaca ```NewsDataStream``` and pushes events into the shared queue.
+* ```CLEAN_*``` Regex: Pre-compiled patterns used to sanitize raw HTML content from RSS feeds.
 
 ## Notes
 * RSS Threading: The RSS polling thread (`t_rss`) is currently commented out in the `__main__` section. Uncomment it if you want to pull Yahoo Finance data alongside the Alpaca stream.
